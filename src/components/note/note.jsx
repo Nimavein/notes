@@ -8,7 +8,11 @@ import {
   NoteDeleteButton,
 } from "./Note.styles";
 
-const Note = ({ note }) => {
+const Note = ({ note, setNotes, notes }) => {
+  const deleteNote = (id) => {
+    setNotes(notes.filter((note) => note.id !== id));
+  };
+
   console.log(note);
   return (
     <NoteWrapper noteColor={note.color}>
@@ -16,7 +20,9 @@ const Note = ({ note }) => {
       <NoteDescription>{note.description}</NoteDescription>
       <NoteButtons>
         <NoteEditButton>Edit</NoteEditButton>
-        <NoteDeleteButton>Delete</NoteDeleteButton>
+        <NoteDeleteButton onClick={() => deleteNote(note.id)}>
+          Delete
+        </NoteDeleteButton>
       </NoteButtons>
     </NoteWrapper>
   );

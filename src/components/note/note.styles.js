@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const NoteWrapper = styled.div`
-  width: 30%;
   padding: 14px;
   display: flex;
   flex-direction: column;

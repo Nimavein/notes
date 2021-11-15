@@ -46,6 +46,7 @@ export const NoteFormSelect = styled.select`
 `;
 export const NoteFormOption = styled.option``;
 export const NoteFormSubmitButton = styled.button`
+  margin-bottom: 14px;
   padding: 10px 16px;
   margin-left: auto;
   margin-top: 8px;

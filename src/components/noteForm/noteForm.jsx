@@ -11,10 +11,12 @@ import {
   Divider,
   CreateNoteSectionWrapper,
 } from "./NoteForm.styles";
+import nextId from "react-id-generator";
 import { useForm } from "react-hook-form";
 
 const NoteForm = ({ setNotes, notes }) => {
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
+  const [id, setId] = useState(1);
   const { register, handleSubmit, reset } = useForm();
 
   useEffect(() => {
@@ -41,8 +43,10 @@ const NoteForm = ({ setNotes, notes }) => {
 
   const onSubmit = (data) => {
     setIsSubmitSuccessful(true);
-    setNotes([...notes, data]);
+    setNotes([...notes, { ...data, id }]);
+    setId(id + 1);
     reset();
+    console.log(notes);
   };
 
   return (

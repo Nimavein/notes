@@ -1,14 +1,31 @@
 import React from "react";
 import Note from "../note/Note";
-import { NotesWrapper } from "./Notes.styles";
+import { Divider } from "../noteForm/NoteForm.styles";
+import { NotesWrapper, YourNotesText } from "./Notes.styles";
 
-const Notes = ({ notes }) => {
+const Notes = ({ notes, setNotes }) => {
   return (
-    <NotesWrapper>
-      {notes.map((note) => {
-        return <Note key={note.title} note={note} />;
-      })}
-    </NotesWrapper>
+    <>
+      {notes.length > 0 && (
+        <>
+          <YourNotesText>Your notes</YourNotesText>
+          <Divider />
+        </>
+      )}
+
+      <NotesWrapper>
+        {notes.map((note) => {
+          return (
+            <Note
+              key={note.title}
+              note={note}
+              setNotes={setNotes}
+              notes={notes}
+            />
+          );
+        })}
+      </NotesWrapper>
+    </>
   );
 };
 
