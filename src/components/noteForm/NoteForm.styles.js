@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const CreateNoteSectionWrapper = styled.section`
   width: 50%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  } ;
 `;
 
 export const CreateNoteText = styled.p`
@@ -44,8 +48,13 @@ export const NoteFormOption = styled.option``;
 export const NoteFormSubmitButton = styled.button`
   padding: 10px 16px;
   margin-left: auto;
+  margin-top: 8px;
   border: black 1px solid;
-  background: none;
+  background: ${({ isSubmitSuccessful }) =>
+    isSubmitSuccessful ? "black" : "none"};
+  width: ${({ isSubmitSuccessful }) => (isSubmitSuccessful ? "100%" : "auto")};
+  color: ${({ isSubmitSuccessful }) =>
+    isSubmitSuccessful ? "white" : "black"};
   cursor: pointer;
   transition: all ease-in-out 0.3s;
 

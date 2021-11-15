@@ -1,11 +1,13 @@
 import { useState } from "react";
 import NoteForm from "./components/noteForm/NoteForm";
+import Notes from "./components/notes/Notes";
 
 const App = () => {
-  const [selectedColor, setSelectedColor] = useState("");
+  const [notes, setNotes] = useState([]);
   return (
     <>
-      <NoteForm setSelectedColor={setSelectedColor} />
+      <NoteForm setNotes={setNotes} notes={notes} />
+      <Notes notes={notes} setNotes={setNotes} />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyledNoteForm,
   NoteFormInput,
@@ -13,8 +13,19 @@ import {
 } from "./NoteForm.styles";
 import { useForm } from "react-hook-form";
 
-const NoteForm = ({ setSelectedColor }) => {
+const NoteForm = ({ setNotes, notes }) => {
+  const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
   const { register, handleSubmit, reset } = useForm();
+
+  useEffect(() => {
+    let submitSuccessfulTimer = setTimeout(
+      () => setIsSubmitSuccessful(false),
+      4000
+    );
+    return () => {
+      clearTimeout(submitSuccessfulTimer);
+    };
+  }, [isSubmitSuccessful]);
 
   const colorsToSelect = [
     { name: "Bisque", code: "#FFE4C4" },
@@ -29,8 +40,8 @@ const NoteForm = ({ setSelectedColor }) => {
   ];
 
   const onSubmit = (data) => {
-    setSelectedColor(data.color);
-    console.log(data);
+    setIsSubmitSuccessful(true);
+    setNotes([...notes, data]);
     reset();
   };
 
@@ -54,7 +65,7 @@ const NoteForm = ({ setSelectedColor }) => {
         <FormEntry>
           <NoteFormLabel>Note color</NoteFormLabel>
           <NoteFormSelect {...register("color")} name="color" required>
-            <NoteFormOption>Select color</NoteFormOption>
+            <NoteFormOption value="">Select color</NoteFormOption>
             {colorsToSelect.map((color) => {
               return (
                 <NoteFormOption value={color.code} key={color.name}>
@@ -64,7 +75,9 @@ const NoteForm = ({ setSelectedColor }) => {
             })}
           </NoteFormSelect>
         </FormEntry>
-        <NoteFormSubmitButton>Submit</NoteFormSubmitButton>
+        <NoteFormSubmitButton isSubmitSuccessful={isSubmitSuccessful}>
+          {isSubmitSuccessful ? "Successfully created" : "Create"}
+        </NoteFormSubmitButton>
       </StyledNoteForm>
     </CreateNoteSectionWrapper>
   );
