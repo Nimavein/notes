@@ -13,14 +13,14 @@ export const NoteEditFormWrapper = styled.section`
     1.71337px 28.2982px 34.875px rgba(97, 121, 139, 0.04725),
     0.676885px 11.1795px 13px rgba(97, 121, 139, 0.035),
     0.148069px 2.44552px 4.625px rgba(97, 121, 139, 0.02275);
-  background-color: #181818;
+  background-color: white;
   display: flex;
   flex-direction: column;
   z-index: 100;
   padding: 20px;
-  color: white;
+  color: black;
   border-radius: 8px;
-  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 0 50vmax rgba(0, 0, 0, 0.8);
 
   @media (max-width: 768px) {
     width: 90%;
@@ -50,16 +50,10 @@ export const EditNoteFormInput = styled.input`
   margin-top: 8px;
   height: 34px;
   text-indent: 8px;
-  background-color: #303030;
-  border: none;
-  color: white;
 `;
 export const EditNoteFormSelect = styled.select`
   margin-top: 8px;
   height: 30px;
-  background-color: #303030;
-  color: white;
-  border: none;
 `;
 export const EditNoteFormOption = styled.option``;
 

@@ -30,6 +30,8 @@ const NoteEdit = ({ notes, setNotes, note, setIsEditFormVisible }) => {
     { name: "Dark Sea Green", code: "#8FBC8F" },
   ];
 
+  console.log(notes);
+
   const onSubmit = (data) => {
     const editedNote = {
       title: data.title,
@@ -38,7 +40,7 @@ const NoteEdit = ({ notes, setNotes, note, setIsEditFormVisible }) => {
       id: note.id,
     };
     const editedNotes = notes.map((mapNote) =>
-      note.id === mapNote.id ? editedNote : note
+      note.id === mapNote.id ? editedNote : mapNote
     );
     setNotes(editedNotes);
     reset();
