@@ -16,12 +16,7 @@ const Notes = ({ notes, setNotes }) => {
       <NotesWrapper>
         {notes.map((note) => {
           return (
-            <Note
-              key={note.title}
-              note={note}
-              setNotes={setNotes}
-              notes={notes}
-            />
+            <Note key={note.id} note={note} setNotes={setNotes} notes={notes} />
           );
         })}
       </NotesWrapper>

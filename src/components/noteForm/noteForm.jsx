@@ -56,11 +56,17 @@ const NoteForm = ({ setNotes, notes }) => {
       <StyledNoteForm onSubmit={handleSubmit(onSubmit)}>
         <FormEntry>
           <NoteFormLabel>Title</NoteFormLabel>
-          <NoteFormInput {...register("title")} name="title" required />
+          <NoteFormInput
+            placeholder="Enter title"
+            {...register("title")}
+            name="title"
+            required
+          />
         </FormEntry>
         <FormEntry>
           <NoteFormLabel>Description</NoteFormLabel>
           <NoteFormInput
+            placeholder="Enter description"
             {...register("description")}
             name="description"
             required
