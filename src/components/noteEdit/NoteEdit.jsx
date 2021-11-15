@@ -18,11 +18,6 @@ import { Divider } from "../noteForm/NoteForm.styles";
 const NoteEdit = ({ notes, setNotes, note, setIsEditFormVisible }) => {
   const { register, handleSubmit, reset } = useForm();
 
-  const editNote = (id) => {
-    // const editedNote = notes.find((note) => note.id === id)
-    // console.log(editedNote);
-  };
-
   const colorsToSelect = [
     { name: "Bisque", code: "#FFE4C4" },
     { name: "Brown", code: "#A52A2A" },
@@ -47,7 +42,6 @@ const NoteEdit = ({ notes, setNotes, note, setIsEditFormVisible }) => {
     );
     setNotes(editedNotes);
     reset();
-    console.log(notes);
   };
 
   return (
@@ -87,7 +81,10 @@ const NoteEdit = ({ notes, setNotes, note, setIsEditFormVisible }) => {
           </EditNoteFormSelect>
         </EditFormEntry>
         <EditButtonsWrapper>
-          <EditNoteFormSubmitButton type="submit">
+          <EditNoteFormSubmitButton
+            onClick={() => setIsEditFormVisible(false)}
+            type="submit"
+          >
             Edit
           </EditNoteFormSubmitButton>
           <EditNoteFormCancelButton onClick={() => setIsEditFormVisible(false)}>

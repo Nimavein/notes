@@ -20,7 +20,6 @@ const Note = ({ note, setNotes, notes }) => {
     setIsEditFormVisible(true);
   };
 
-  console.log(note);
   return (
     <>
       {isEditFormVisible && (

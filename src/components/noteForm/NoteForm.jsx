@@ -46,7 +46,6 @@ const NoteForm = ({ setNotes, notes }) => {
     setNotes([...notes, { ...data, id }]);
     setId(id + 1);
     reset();
-    console.log(notes);
   };
 
   return (
