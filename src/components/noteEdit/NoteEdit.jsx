@@ -42,6 +42,7 @@ const NoteEdit = ({ notes, setNotes, note, setIsEditFormVisible }) => {
     );
     setNotes(editedNotes);
     reset();
+    setIsEditFormVisible(false);
   };
 
   return (
@@ -81,10 +82,7 @@ const NoteEdit = ({ notes, setNotes, note, setIsEditFormVisible }) => {
           </EditNoteFormSelect>
         </EditFormEntry>
         <EditButtonsWrapper>
-          <EditNoteFormSubmitButton
-            onClick={() => setIsEditFormVisible(false)}
-            type="submit"
-          >
+          <EditNoteFormSubmitButton type="submit">
             Edit
           </EditNoteFormSubmitButton>
           <EditNoteFormCancelButton onClick={() => setIsEditFormVisible(false)}>
