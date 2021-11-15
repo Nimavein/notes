@@ -1,5 +1,13 @@
+import { useState } from "react";
+import NoteForm from "./components/noteForm/NoteForm";
+
 const App = () => {
-  return <></>;
+  const [selectedColor, setSelectedColor] = useState("");
+  return (
+    <>
+      <NoteForm setSelectedColor={setSelectedColor} />
+    </>
+  );
 };
 
 export default App;
